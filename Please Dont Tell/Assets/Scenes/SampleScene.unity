@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 1442420776}
   - component: {fileID: 1442420777}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,6 +344,7 @@ MonoBehaviour:
   speed: 7
   jumpForce: 10
   attack: 3
+  bottlePrefab: {fileID: 3954755850286980894, guid: efd7b8adb6312f54baa39577b80e80f3, type: 3}
 --- !u!61 &1442420777
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -382,7 +383,7 @@ GameObject:
   - component: {fileID: 1473424197}
   - component: {fileID: 1473424196}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
