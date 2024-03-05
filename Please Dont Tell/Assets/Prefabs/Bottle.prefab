@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3954755850286980890}
   - component: {fileID: 3954755850286980893}
   - component: {fileID: 3954755850286980891}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2957454f8fa98c14085455f5a9fa4c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4820503580710742264, guid: 7cc52c43c67fd0540ab900653e8cc7a7, type: 3}
   rotationSpeed: 0.25
   speedX: 4
   speedY: 5

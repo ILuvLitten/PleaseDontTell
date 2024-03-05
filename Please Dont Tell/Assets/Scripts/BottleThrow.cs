@@ -27,4 +27,12 @@ public class BottleThrow : MonoBehaviour
     {
         rb.AddTorque(rotationSpeed * -player.direction);
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        RatController rat = other.gameObject.GetComponent<RatController>();
+        if (rat != null) rat.InititateLaunchback(player.direction);
+        Destroy(gameObject);
+    }
+
 }

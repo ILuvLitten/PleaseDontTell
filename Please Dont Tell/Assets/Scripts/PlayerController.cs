@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public bool canMove = true;
+    public bool canAttack = true;
+
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] float attack;
@@ -25,17 +29,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        if (canMove)
+        {
+            horizontal = Input.GetAxis("Horizontal");
 
-        rb.position = new Vector2(rb.position.x + horizontal * speed * Time.deltaTime, rb.position.y);
-        if (horizontal > 0) direction = 1;
-        if (horizontal < 0) direction = -1;
+            rb.position = new Vector2(rb.position.x + horizontal * speed * Time.deltaTime, rb.position.y);
+            if (horizontal > 0) direction = 1;
+            if (horizontal < 0) direction = -1;
+        }
     }
 
     void Update()
     {
-        HandleJump();
-        HandleAttack();
+        if (canMove) HandleJump();
+        if (canAttack) HandleAttack();
     }
 
     void HandleJump()
