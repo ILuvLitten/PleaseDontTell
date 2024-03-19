@@ -7,7 +7,7 @@ public class BottleThrow : MonoBehaviour
 
     PlayerController player;
 
-    [SerializeField] float rotationSpeed;
+    //[SerializeField] float rotationSpeed;
     [SerializeField] float speedX;
     [SerializeField] float speedY;
 
@@ -25,13 +25,13 @@ public class BottleThrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddTorque(rotationSpeed * -player.direction);
+        //rb.AddTorque(rotationSpeed * -player.direction);
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
         RatController rat = other.gameObject.GetComponent<RatController>();
-        if (rat != null) rat.InititateLaunchback(player.direction);
+        if (rat != null) rat.InititateLaunchback(player.direction, player.attack);
         Destroy(gameObject);
     }
 
