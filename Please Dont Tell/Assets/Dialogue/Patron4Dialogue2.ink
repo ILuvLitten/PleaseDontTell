@@ -1,0 +1,5 @@
+"..."
+"How long do you think this'll hold up?"
+"Until the fuzz get'cha? Until the money dries out?"
+"You better make it big, buster."
+"Don't forget the gangsters your'e getting our liquor from."
