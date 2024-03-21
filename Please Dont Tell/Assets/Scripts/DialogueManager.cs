@@ -8,6 +8,8 @@ using UnityEngine.EventSystems;
 public class DialogueManager : MonoBehaviour
 {
 
+    static DialogueManager instance;
+
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] TextMeshProUGUI dialogueText;
 
@@ -18,6 +20,20 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
 
     bool buffer;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        instance = this;
+    }
+
+    public static DialogueManager GetInstance()
+    {
+        return instance;
+    }
 
     // Start is called before the first frame update
     void Start()

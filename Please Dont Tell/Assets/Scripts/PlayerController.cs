@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private DialogueManager dialogueManager;
 
+    public int[] inventory {get; private set;}
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
 
         playerHealth = health;
+        inventory = new int[3];
     }
 
     // Update is called once per frame
@@ -102,12 +105,12 @@ public class PlayerController : MonoBehaviour
     void HandleTalk()
     {
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.RightShift))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(direction,-1,0), new Vector2(direction, 0), 0.5f, LayerMask.GetMask("NPC"));
             if (hit.collider != null && hit.collider.gameObject.GetComponent<NPCController>() != null && rb.velocity.y == 0)
             {
-                hit.collider.gameObject.GetComponent<NPCController>().InitiateDialogue();
+                hit.collider.gameObject.GetComponent<NPCController>().InitiateDialogue(inventory);
                 anim.SetBool("isMoving", false);
             }
         }
@@ -126,6 +129,12 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.GetComponent<RatController>() != null && other.gameObject.GetComponent<RatController>().hostile)
         {
             Damaged(1);
+        }
+        if (other.gameObject.GetComponent<LiquorCollectible>() != null)
+        {
+            inventory[other.gameObject.GetComponent<LiquorCollectible>().itemID] += 1;
+            LiquorCount.GetInstance().UpdateCount(inventory);
+            Destroy(other.gameObject);
         }
     }
 
