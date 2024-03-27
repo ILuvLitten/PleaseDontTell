@@ -13,6 +13,9 @@ public class NPCController : MonoBehaviour
     public int drinkID;
     public float sceneNum;
 
+    Vector3 initialScale;
+    Vector3 flippedScale;
+
     [SerializeField] Sprite patience1;
     [SerializeField] Sprite patience2;
     [SerializeField] Sprite patience3;
@@ -30,6 +33,9 @@ public class NPCController : MonoBehaviour
 
         patienceSprite = transform.GetChild(0).gameObject;
         patienceSprite.GetComponent<SpriteRenderer>().sprite = patience1;
+
+        initialScale = transform.localScale;
+        flippedScale = new Vector3(initialScale.x * -1, initialScale.y, initialScale.z);
         
         if (GameStateManager.GetInstance().GetDayBool(sceneNum))
         {
@@ -70,6 +76,18 @@ public class NPCController : MonoBehaviour
             }
         }
         else if (!isCustomer) DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+        else return;
+
+        if (GameObject.Find("Player") == null) return;
+        Vector3 playerPosition = GameObject.Find("Player").transform.position;
+        if (playerPosition.x > transform.position.x) 
+        {
+            transform.localScale = initialScale;;
+        }
+        if (playerPosition.x < transform.position.x) 
+        {
+            transform.localScale = flippedScale;
+        }
     }
 
     public void Leave()
@@ -103,6 +121,6 @@ public class NPCController : MonoBehaviour
         hasOrdered = NPCManager.GetInstance().GetHasOrdered(ID);
         isServed = NPCManager.GetInstance().GetIsServed(ID);
         hasLeft = NPCManager.GetInstance().GetHasLeft(ID);
-        patienceSprite.SetActive(hasOrdered);
+        patienceSprite.SetActive(hasOrdered && !isServed);
     }
 }
