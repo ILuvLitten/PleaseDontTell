@@ -8,33 +8,45 @@ public class PlayerController : MonoBehaviour
     public bool canMove = true;
     public bool canAttack = true;
 
+    [SerializeField] float sceneNum;
+
+    [SerializeField] Vector3 initialPosition;
+
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     public float attack;
     [SerializeField] float health;
-    public float playerHealth { get; private set; }
     [SerializeField] float knockbackForce;
 
     [SerializeField] GameObject bottlePrefab;
 
     private float horizontal;
     private float vertical;
-    public float direction { get; private set; }
+    public float direction;
     private Vector3 startScale;
+
     private Rigidbody2D rb;
     [SerializeField] Animator anim;
 
     private DialogueManager dialogueManager;
 
+    public int[] inventory;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        direction = 1;
         startScale = transform.localScale;
         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
 
-        playerHealth = health;
+        if (GameStateManager.GetInstance().GetDayBool(sceneNum))
+        {
+            StartDay();
+        }
+        else
+        {
+            NotStartDay();
+        }
     }
 
     // Update is called once per frame
@@ -107,7 +119,7 @@ public class PlayerController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(direction,-1,0), new Vector2(direction, 0), 0.5f, LayerMask.GetMask("NPC"));
             if (hit.collider != null && hit.collider.gameObject.GetComponent<NPCController>() != null && rb.velocity.y == 0)
             {
-                hit.collider.gameObject.GetComponent<NPCController>().InitiateDialogue();
+                hit.collider.gameObject.GetComponent<NPCController>().InitiateDialogue(inventory);
                 anim.SetBool("isMoving", false);
             }
         }
@@ -127,6 +139,13 @@ public class PlayerController : MonoBehaviour
         {
             Damaged(1);
         }
+        if (other.gameObject.GetComponent<LiquorCollectible>() != null)
+        {
+            inventory[other.gameObject.GetComponent<LiquorCollectible>().drinkID] += 1;
+            CollectibleManager.GetInstance().DestroyID(other.gameObject.GetComponent<LiquorCollectible>().itemID);
+            LiquorCount.GetInstance().UpdateCount(inventory);
+            Destroy(other.gameObject);
+        }
     }
 
     public void Launchback(float direction)
@@ -137,7 +156,23 @@ public class PlayerController : MonoBehaviour
     private void Damaged(float damage)
     {
         health -= damage;
-        playerHealth -= damage;
+        HealthManager.GetInstance().UpdateHealth(health);
+    }
+
+    void StartDay()
+    {
+        transform.position = initialPosition;
+        health = 6;
+        inventory = new int[3];
+        direction = 1;
+    }
+
+    void NotStartDay()
+    {
+
+        health = HealthManager.GetInstance().GetHealth();
+        inventory = LiquorCount.GetInstance().GetInventory();
+        
     }
 
 }

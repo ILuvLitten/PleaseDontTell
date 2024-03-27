@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 703576960886573771}
   - component: {fileID: 8159829499678501198}
   - component: {fileID: 4779133991767384258}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ThrowBottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

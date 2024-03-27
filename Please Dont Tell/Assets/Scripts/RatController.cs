@@ -9,19 +9,24 @@ public class RatController : MonoBehaviour
     [SerializeField] float health;
     [SerializeField] float speed;
     public bool canMove;
-    public bool hostile = false;
+    public bool hostile {get; private set;}
 
     float switchTimer;
     public float switchNum = 1;
     [SerializeField] float switchTime;
 
     Rigidbody2D rb;
+    Vector3 initialScale;
+    Vector3 flippedScale;
 
     // Start is called before the first frame update
     void Start()
     {
         
         rb = GetComponent<Rigidbody2D>();
+        initialScale = transform.localScale;
+        flippedScale = new Vector3(initialScale.x * -1, initialScale.y, initialScale.z);
+        hostile = false;
 
     }
 
@@ -41,6 +46,16 @@ public class RatController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (rb.velocity.x > 0)
+        {
+            transform.localScale = initialScale;
+        }
+        else if (rb.velocity.x < 0)
+        {
+            transform.localScale = flippedScale;
+        }
+
     }
 
     void OnCollisionEnter2D(Collision2D other)
