@@ -127,8 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: e78754d9cc5c5f64a921c47313a0ac9b, type: 3}
+  inkJSONserved: {fileID: 0}
   isCustomer: 1
-  itemID: 0
+  ID: 0
+  drinkID: 0
   patience1: {fileID: 976429928, guid: bc94a2cc3c3d3ca4e988ca9c0228c22b, type: 3}
   patience2: {fileID: 1537742786, guid: bc94a2cc3c3d3ca4e988ca9c0228c22b, type: 3}
   patience3: {fileID: 1219036705, guid: bc94a2cc3c3d3ca4e988ca9c0228c22b, type: 3}
@@ -179,7 +181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6169788971674965704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 1.5, z: 0}
+  m_LocalPosition: {x: -0.8, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
