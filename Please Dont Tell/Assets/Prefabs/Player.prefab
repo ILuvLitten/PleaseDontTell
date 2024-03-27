@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   canAttack: 1
+  initialPosition: {x: -20, y: -3, z: 0}
   speed: 5
   jumpForce: 13
   attack: 1
@@ -130,6 +131,7 @@ MonoBehaviour:
   knockbackForce: 5
   bottlePrefab: {fileID: 3555575457028224918, guid: fa5370b53c343e0489d7c884a57c3d9a, type: 3}
   anim: {fileID: 759013211}
+  inventory: 
 --- !u!61 &3909549042998565380
 BoxCollider2D:
   m_ObjectHideFlags: 0

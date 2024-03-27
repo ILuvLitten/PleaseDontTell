@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
             Destroy(gameObject);
         }
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public static DialogueManager GetInstance()
@@ -60,7 +61,7 @@ public class DialogueManager : MonoBehaviour
         if(!dialogueIsPlaying) return;
         //if(Input.GetKeyDown(KeyCode.Space)) return;
    
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Z))
         {
             ContinueStory();
         }

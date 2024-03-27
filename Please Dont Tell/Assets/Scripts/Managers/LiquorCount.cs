@@ -10,6 +10,8 @@ public class LiquorCount : MonoBehaviour
 
     static LiquorCount instance;
 
+    static int[] staticLiquorCounts = new int[3];
+
     void Awake()
     {
         if (instance != null)
@@ -17,6 +19,7 @@ public class LiquorCount : MonoBehaviour
             Destroy(gameObject);
         }
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public static LiquorCount GetInstance()
@@ -26,15 +29,32 @@ public class LiquorCount : MonoBehaviour
 
     void Start()
     {
+
+        UpdateUI();
         
     }
 
     public void UpdateCount(int[] inventory)
     {
         if (inventory == null) return;
-        liquorCounts[0].text = inventory[0].ToString();
-        liquorCounts[1].text = inventory[1].ToString();
-        liquorCounts[2].text = inventory[2].ToString();
+        staticLiquorCounts[0] = inventory[0];
+        staticLiquorCounts[1] = inventory[1];
+        staticLiquorCounts[2] = inventory[2];
+        UpdateUI();
 
+    }
+
+    void UpdateUI()
+    {
+
+        liquorCounts[0].text = staticLiquorCounts[0].ToString();
+        liquorCounts[1].text = staticLiquorCounts[1].ToString();
+        liquorCounts[2].text = staticLiquorCounts[2].ToString();
+
+    }
+
+    public int[] GetInventory()
+    {
+        return staticLiquorCounts;
     }
 }

@@ -5,13 +5,23 @@ using UnityEngine;
 public class LiquorCollectible : MonoBehaviour
 {
 
-    [SerializeField] int ID;
-    public int itemID {get; private set;}
+    
+    public int itemID;
+    public int drinkID;
+
+    public float sceneNum;
 
     // Start is called before the first frame update
     void Start()
     {
-        itemID = ID;
+        if (GameStateManager.GetInstance().GetDayBool(sceneNum))
+        {
+            StartDay();
+        }
+        else
+        {
+            NotStartDay();
+        }
     }
 
     // Update is called once per frame
@@ -20,11 +30,15 @@ public class LiquorCollectible : MonoBehaviour
         
     }
 
-    /*void OnTriggerEnter2D(Collider2D other)
+    void StartDay()
     {
-        if (other.gameObject.GetComponent<PlayerController>() != null)
-        {
-            Destroy(gameObject);
-        }
-    }*/
+        CollectibleManager.GetInstance().AddCollectible(itemID);
+    }
+
+    void NotStartDay()
+    {
+        bool active = CollectibleManager.GetInstance().GetID(itemID);
+        Debug.Log(active);
+        if (!active) Destroy(gameObject);
+    }
 }

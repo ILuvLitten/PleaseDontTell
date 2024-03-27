@@ -9,7 +9,7 @@ public class RatController : MonoBehaviour
     [SerializeField] float health;
     [SerializeField] float speed;
     public bool canMove;
-    public bool hostile = false;
+    public bool hostile {get; private set;}
 
     float switchTimer;
     public float switchNum = 1;
@@ -26,6 +26,7 @@ public class RatController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         initialScale = transform.localScale;
         flippedScale = new Vector3(initialScale.x * -1, initialScale.y, initialScale.z);
+        hostile = false;
 
     }
 
