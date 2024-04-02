@@ -704,7 +704,7 @@ PrefabInstance:
     - target: {fileID: 3708792971188345762, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5171ec5db5a5b0b4ba3a1ca1ecf8170e, type: 2}
+      objectReference: {fileID: 9100000, guid: 5f5b3cfbb6af133418cb0da9ee822776, type: 2}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: ID
       value: 3
@@ -720,7 +720,7 @@ PrefabInstance:
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: inkJSON
       value: 
-      objectReference: {fileID: 4900000, guid: 401836eff771b164e8adbc9503b71543, type: 3}
+      objectReference: {fileID: 4900000, guid: 590006338de042e4e90a1ded9c94c38f, type: 3}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: sceneNum
       value: 1
@@ -736,7 +736,7 @@ PrefabInstance:
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: inkJSONserved
       value: 
-      objectReference: {fileID: 4900000, guid: 57520508d2009564a9f96ac19fe79f7d, type: 3}
+      objectReference: {fileID: 4900000, guid: 401836eff771b164e8adbc9503b71543, type: 3}
     - target: {fileID: 6169788971226362589, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -3122,6 +3122,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3708792971188345762, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 86732cbee3e8d344bb975dd1f0a8b451, type: 2}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: ID
       value: 1
@@ -3137,7 +3141,7 @@ PrefabInstance:
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: inkJSON
       value: 
-      objectReference: {fileID: 4900000, guid: afc5315723747f248aaddb9569369aa3, type: 3}
+      objectReference: {fileID: 4900000, guid: 02fc8c61cfc0e034e889353383844a7f, type: 3}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: sceneNum
       value: 1
@@ -3153,7 +3157,7 @@ PrefabInstance:
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: inkJSONserved
       value: 
-      objectReference: {fileID: 4900000, guid: eb1e2f8a67fefae4898acec9eb9c54e5, type: 3}
+      objectReference: {fileID: 4900000, guid: afc5315723747f248aaddb9569369aa3, type: 3}
     - target: {fileID: 6169788971226362589, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3918,10 +3922,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3708792971188345762, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 79a7a9cfe50d7ee49b9f64f91369611e, type: 2}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: inkJSON
       value: 
-      objectReference: {fileID: 4900000, guid: 9c9365c872e16c947b293f49849ae609, type: 3}
+      objectReference: {fileID: 4900000, guid: 5f5505a6d35665f48bc2083339921aa7, type: 3}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: sceneNum
       value: 1
@@ -3933,7 +3941,7 @@ PrefabInstance:
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: inkJSONserved
       value: 
-      objectReference: {fileID: 4900000, guid: f17059d42e7977c4ab975ddc5fe0410c, type: 3}
+      objectReference: {fileID: 4900000, guid: 9c9365c872e16c947b293f49849ae609, type: 3}
     - target: {fileID: 6169788971226362589, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: m_RootOrder
       value: 7
