@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: faf3a064cf94d1c4fb76042f42cfe819
+guid: ef8423674eab1cf47a3c6b2d0496e6bd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NPC3and4Sprites_0
+      name: BackgroundTiles_0
       rect:
         serializedVersion: 2
         x: 0
         y: 64
         width: 32
-        height: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb6aea9209ffcbe47a205fff0fc5c7b8
-      internalID: 2141310532
+      spriteID: 8c8e3bbda652ce1478a9097939e02c7a
+      internalID: -1194006742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC3and4Sprites_1
+      name: BackgroundTiles_1
       rect:
         serializedVersion: 2
         x: 32
         y: 64
         width: 32
-        height: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5631f09f37c6b54e82084f0836d9e9e
-      internalID: -1453481309
+      spriteID: 12a10a8d1ad45bf418b315b71057e912
+      internalID: -415657864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC3and4Sprites_2
+      name: BackgroundTiles_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 0
+        y: 32
         width: 32
-        height: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab5d9b465c4352b42b30f958837a2ecc
-      internalID: -87529059
+      spriteID: 0804740cb082b5d418539df65d4a4d00
+      internalID: -1049433757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC3and4Sprites_3
+      name: BackgroundTiles_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
+        x: 32
+        y: 32
         width: 32
-        height: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07d7ec01fff04154ba3866cfea828035
-      internalID: -894594394
+      spriteID: 1e0d17c98df354943bf3f08a752b43ae
+      internalID: 243447245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC3and4Sprites_4
+      name: BackgroundTiles_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fe123895cc8aae44969603c8e3fb43d
-      internalID: -649244413
+      spriteID: 16dfc83dacab0ea4497254cbbd54333a
+      internalID: 1772574200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC3and4Sprites_5
+      name: BackgroundTiles_5
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
-        height: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,50 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 504443da0fde17f4b88aa085b5b6d678
-      internalID: -1511593819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NPC3and4Sprites_6
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d33258148834eaf4aa237b438fba2c19
-      internalID: 1367972595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NPC3and4Sprites_7
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed6ad3e2f35c14d478aae1ace3698b00
-      internalID: -1349268860
+      spriteID: a1ed8d9e5b71c15428ab593d8eeb57e5
+      internalID: -1965415155
       vertices: []
       indices: 
       edges: []
@@ -295,14 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      NPC3and4Sprites_0: 2141310532
-      NPC3and4Sprites_1: -1453481309
-      NPC3and4Sprites_2: -87529059
-      NPC3and4Sprites_3: -894594394
-      NPC3and4Sprites_4: -649244413
-      NPC3and4Sprites_5: -1511593819
-      NPC3and4Sprites_6: 1367972595
-      NPC3and4Sprites_7: -1349268860
+      BackgroundTiles_0: -1194006742
+      BackgroundTiles_1: -415657864
+      BackgroundTiles_2: -1049433757
+      BackgroundTiles_3: 243447245
+      BackgroundTiles_4: 1772574200
+      BackgroundTiles_5: -1965415155
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
