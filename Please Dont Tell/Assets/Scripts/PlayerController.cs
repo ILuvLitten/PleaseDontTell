@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(direction,-1,0), new Vector2(direction, 0), 0.5f, LayerMask.GetMask("NPC"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(direction,0,0), new Vector2(direction, 0), 0.5f, LayerMask.GetMask("NPC"));
             if (hit.collider != null && hit.collider.gameObject.GetComponent<NPCController>() != null && rb.velocity.y == 0)
             {
                 hit.collider.gameObject.GetComponent<NPCController>().InitiateDialogue(inventory);

@@ -32,7 +32,7 @@ public class NPCController : MonoBehaviour
     {
 
         patienceSprite = transform.GetChild(0).gameObject;
-        patienceSprite.GetComponent<SpriteRenderer>().sprite = patience1;
+        //patienceSprite.GetComponent<SpriteRenderer>().sprite = patience1;
 
         initialScale = transform.localScale;
         flippedScale = new Vector3(initialScale.x * -1, initialScale.y, initialScale.z);
@@ -64,6 +64,7 @@ public class NPCController : MonoBehaviour
                 patienceSprite.SetActive(true);
                 hasOrdered = true;
                 NPCManager.GetInstance().SetHasOrdered(ID, true);
+                TimerManager.AddTimer(gameObject);
             }
             else if (inventory[drinkID] > 0 && !isServed) 
             {
@@ -96,17 +97,28 @@ public class NPCController : MonoBehaviour
         Debug.Log("patron " + ID + " has left");
     }
 
-    /*public void SetPatienceSprite(int patience)
+    public void SetPatienceSprite(int patience)
     {
+
+        if (patienceSprite == null) return;
 
         switch(patience)
         {
             case 1:
                 patienceSprite.GetComponent<SpriteRenderer>().sprite = patience1;
                 break;
+            case 2:
+                patienceSprite.GetComponent<SpriteRenderer>().sprite = patience2;
+                break;
+            case 3:
+                patienceSprite.GetComponent<SpriteRenderer>().sprite = patience3;
+                break;
+            case 4:
+                patienceSprite.GetComponent<SpriteRenderer>().sprite = patience4;
+                break;
         }
 
-    }*/
+    }
 
     void StartDay()
     {

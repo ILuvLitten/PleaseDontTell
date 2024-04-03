@@ -6,6 +6,7 @@ public class GameStateManager : MonoBehaviour
 {
 
     static GameStateManager instance;
+    [SerializeField] Animator transition;
 
     static bool startDayOne = true;
     static bool startDayTwo = true;
@@ -35,6 +36,8 @@ public class GameStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if (transition != null) transition.Play("TransitionEndAnim");
         
     }
 
