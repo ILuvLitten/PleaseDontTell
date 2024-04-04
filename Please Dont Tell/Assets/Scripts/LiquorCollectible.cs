@@ -38,7 +38,7 @@ public class LiquorCollectible : MonoBehaviour
     void NotStartDay()
     {
         bool active = CollectibleManager.GetInstance().GetID(itemID);
-        Debug.Log(active);
+        //Debug.Log(active);
         if (!active) Destroy(gameObject);
     }
 }

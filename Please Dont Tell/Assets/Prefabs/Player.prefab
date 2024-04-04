@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 641934266, guid: 26a692c1f1151284a9a3a7ba3a27f287, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   canAttack: 1
+  sceneNum: 0
   initialPosition: {x: -20, y: -3, z: 0}
   speed: 5
   jumpForce: 13
@@ -130,6 +131,7 @@ MonoBehaviour:
   health: 6
   knockbackForce: 5
   bottlePrefab: {fileID: 3555575457028224918, guid: fa5370b53c343e0489d7c884a57c3d9a, type: 3}
+  direction: 0
   anim: {fileID: 759013211}
   inventory: 
 --- !u!61 &3909549042998565380
@@ -145,7 +147,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04260622, y: -0.13633984}
+  m_Offset: {x: 0.042606235, y: -0.12012738}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -156,7 +158,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.67619276, y: 1.7273203}
+  m_Size: {x: 0.67619276, y: 1.6948954}
   m_EdgeRadius: 0
 --- !u!95 &759013211
 Animator:
