@@ -145,6 +145,7 @@ public class PlayerController : MonoBehaviour
             inventory[other.gameObject.GetComponent<LiquorCollectible>().drinkID] += 1;
             CollectibleManager.GetInstance().DestroyID(other.gameObject.GetComponent<LiquorCollectible>().itemID);
             LiquorCount.GetInstance().UpdateCount(inventory);
+            PointsManager.GetInstance().AddPoints(50f);
             Destroy(other.gameObject);
         }
     }

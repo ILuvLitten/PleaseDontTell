@@ -74,6 +74,7 @@ public class NPCController : MonoBehaviour
                 LiquorCount.GetInstance().UpdateCount(inventory);
                 isServed = true;
                 NPCManager.GetInstance().SetIsServed(ID, true);
+                PointsManager.GetInstance().AddPoints(DeterminePoints());
             }
         }
         else if (!isCustomer) DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
@@ -118,6 +119,11 @@ public class NPCController : MonoBehaviour
                 break;
         }
 
+    }
+
+    float DeterminePoints()
+    {
+        return 50f;
     }
 
     void StartDay()

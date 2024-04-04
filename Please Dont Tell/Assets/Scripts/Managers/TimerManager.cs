@@ -59,25 +59,27 @@ public class TimerManager : MonoBehaviour
                 {
                     //Debug.Log(GameObject.Find(timedNPCs[i]) + " lost all patience (4/4)");
                     if (GameObject.Find(timedNPCs[i]) != null) GameObject.Find(timedNPCs[i]).GetComponent<NPCController>().SetPatienceSprite(4);
-                    yield break;
                 }
                 else if (timers[i] > 30)
                 {
                     //Debug.Log(GameObject.Find(timedNPCs[i]) + " lost some patience (3/4)");
                     if (GameObject.Find(timedNPCs[i]) != null) GameObject.Find(timedNPCs[i]).GetComponent<NPCController>().SetPatienceSprite(3);
+                    timers[i] += Time.deltaTime;
                 }
                 else if (timers[i] > 20)
                 {
                     //Debug.Log(GameObject.Find(timedNPCs[i]) + " lost some patience (2/4)");
                     if (GameObject.Find(timedNPCs[i]) != null) GameObject.Find(timedNPCs[i]).GetComponent<NPCController>().SetPatienceSprite(2);
+                    timers[i] += Time.deltaTime;
                 }
                 else if (timers[i] > 10)
                 {
                     //Debug.Log(GameObject.Find(timedNPCs[i]) + " lost some patience (1/4)");
                     if (GameObject.Find(timedNPCs[i]) != null) GameObject.Find(timedNPCs[i]).GetComponent<NPCController>().SetPatienceSprite(1);
+                    timers[i] += Time.deltaTime;
                 }
+                else timers[i] += Time.deltaTime;
 
-                timers[i] += Time.deltaTime;
                 //Debug.Log(timers[i]);
 
             }
