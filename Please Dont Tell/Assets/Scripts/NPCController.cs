@@ -123,7 +123,10 @@ public class NPCController : MonoBehaviour
 
     float DeterminePoints()
     {
-        return 50f;
+        if (patienceSprite.GetComponent<SpriteRenderer>().sprite == patience1) return 250f;
+        else if (patienceSprite.GetComponent<SpriteRenderer>().sprite == patience2) return 100f;
+        else if (patienceSprite.GetComponent<SpriteRenderer>().sprite == patience3) return 50f;
+        else return 500f;
     }
 
     void StartDay()
