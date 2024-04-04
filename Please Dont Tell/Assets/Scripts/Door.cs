@@ -12,6 +12,8 @@ public class Door : MonoBehaviour
     [SerializeField] string nextScene;
     [SerializeField] float sceneNum;
 
+    [SerializeField] Animator transition;
+
     bool playerIsNear;
 
     // Start is called before the first frame update
@@ -33,8 +35,7 @@ public class Door : MonoBehaviour
         if (playerIsNear && Input.GetKeyDown(KeyCode.Z))
         {
             Debug.Log("door entered");
-            SceneManager.LoadScene(nextScene);
-            GameStateManager.GetInstance().SetDayBool(sceneNum, false);
+            StartCoroutine(Load());
         }
         
     }
@@ -47,5 +48,13 @@ public class Door : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<PlayerController>() != null) playerIsNear = false;
+    }
+
+    IEnumerator Load()
+    {
+        transition.Play("TransitionStartAnim");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(nextScene);
+        GameStateManager.GetInstance().SetDayBool(sceneNum, false);
     }
 }
