@@ -5,7 +5,8 @@ using UnityEngine;
 public class Ladder : MonoBehaviour
 {
 
-    bool playerEnter;
+    bool isTouching = true;
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,11 @@ public class Ladder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (rb != null && isTouching && Input.GetKey(KeyCode.UpArrow))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 5);
+        }
         
     }
 
@@ -23,12 +29,8 @@ public class Ladder : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>()!= null)
         {
-            playerEnter = true;
-            Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
-            while(playerEnter)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, 5);
-            }
+            rb = other.gameObject.GetComponent<Rigidbody2D>();
+            isTouching = true;
         }
     }
 
@@ -36,7 +38,7 @@ public class Ladder : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>()!= null)
         {
-            playerEnter = false;
+            isTouching = false;
         }
     }
 
