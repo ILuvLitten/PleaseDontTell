@@ -155,10 +155,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(knockbackForce * direction, knockbackForce);
     }
 
-    private void Damaged(float damage)
+    public void Damaged(float damage)
     {
         health -= damage;
         HealthManager.GetInstance().UpdateHealth(health);
+        Launchback(-direction);
     }
 
     void StartDay()
