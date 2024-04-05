@@ -32,6 +32,10 @@ public class BottleThrow : MonoBehaviour
     {
         RatController rat = other.gameObject.GetComponent<RatController>();
         if (rat != null) rat.InititateLaunchback(player.direction, player.attack);
+
+        Box box = other.gameObject.GetComponent<Box>();
+        if (box != null) Destroy(box.gameObject);
+
         Destroy(gameObject);
     }
 
