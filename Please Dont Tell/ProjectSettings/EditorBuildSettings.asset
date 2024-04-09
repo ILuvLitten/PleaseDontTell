@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: 7cb10077707c74b4aac0be87c80d9f19
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 6c413ebd0b5c9124db8ad07bedad87bd
+  - enabled: 1
     path: Assets/Scenes/BarScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 213e4776f340c1f4e800f611f54b9e44
   - enabled: 1
     path: Assets/Scenes/CellarScene.unity
     guid: a9f67a03a46ccb941927072139efa3ba
   - enabled: 1
-    path: Assets/Scenes/TutorialScene.unity
-    guid: 6c413ebd0b5c9124db8ad07bedad87bd
+    path: Assets/Scenes/TestScene.unity
+    guid: 997050b0009d9c54fbe95375a851f777
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: 4c05e7776253a734a9133f780e6285a2
   m_configObjects: {}

@@ -13,6 +13,9 @@ public class NPCController : MonoBehaviour
     public int drinkID;
     public float sceneNum;
 
+    Vector3 initialScale;
+    Vector3 flippedScale;
+
     [SerializeField] Sprite patience1;
     [SerializeField] Sprite patience2;
     [SerializeField] Sprite patience3;
@@ -20,16 +23,19 @@ public class NPCController : MonoBehaviour
 
     GameObject patienceSprite;
 
-    bool hasOrdered;
-    bool isServed;
-    bool hasLeft;
+    public bool hasOrdered;
+    public bool isServed;
+    public bool hasLeft;
 
     // Start is called before the first frame update
     void Start()
     {
 
         patienceSprite = transform.GetChild(0).gameObject;
-        patienceSprite.GetComponent<SpriteRenderer>().sprite = patience1;
+        //patienceSprite.GetComponent<SpriteRenderer>().sprite = patience1;
+
+        initialScale = transform.localScale;
+        flippedScale = new Vector3(initialScale.x * -1, initialScale.y, initialScale.z);
         
         if (GameStateManager.GetInstance().GetDayBool(sceneNum))
         {
@@ -45,7 +51,11 @@ public class NPCController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (((isServed && !DialogueManager.GetInstance().dialogueIsPlaying) || hasLeft) && transform.position.y < 100)
+        {
+            Leave();
+            MusicManager.GetInstance().CuePolice();
+        }
     }
 
     public void InitiateDialogue(int[] inventory)
@@ -58,6 +68,7 @@ public class NPCController : MonoBehaviour
                 patienceSprite.SetActive(true);
                 hasOrdered = true;
                 NPCManager.GetInstance().SetHasOrdered(ID, true);
+                TimerManager.AddTimer(gameObject);
             }
             else if (inventory[drinkID] > 0 && !isServed) 
             {
@@ -70,25 +81,47 @@ public class NPCController : MonoBehaviour
             }
         }
         else if (!isCustomer) DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+        else return;
+
+        if (GameObject.Find("Player") == null) return;
+        Vector3 playerPosition = GameObject.Find("Player").transform.position;
+        if (playerPosition.x > transform.position.x) 
+        {
+            transform.localScale = initialScale;;
+        }
+        if (playerPosition.x < transform.position.x) 
+        {
+            transform.localScale = flippedScale;
+        }
     }
 
     public void Leave()
     {
-        hasLeft = true;
-        Debug.Log("patron " + ID + " has left");
+        transform.position = new Vector3(transform.position.x, 100, transform.position.z);
     }
 
-    /*public void SetPatienceSprite(int patience)
+    public void SetPatienceSprite(int patience)
     {
+
+        if (patienceSprite == null) return;
 
         switch(patience)
         {
             case 1:
                 patienceSprite.GetComponent<SpriteRenderer>().sprite = patience1;
                 break;
+            case 2:
+                patienceSprite.GetComponent<SpriteRenderer>().sprite = patience2;
+                break;
+            case 3:
+                patienceSprite.GetComponent<SpriteRenderer>().sprite = patience3;
+                break;
+            case 4:
+                patienceSprite.GetComponent<SpriteRenderer>().sprite = patience4;
+                break;
         }
 
-    }*/
+    }
 
     void StartDay()
     {
@@ -103,6 +136,8 @@ public class NPCController : MonoBehaviour
         hasOrdered = NPCManager.GetInstance().GetHasOrdered(ID);
         isServed = NPCManager.GetInstance().GetIsServed(ID);
         hasLeft = NPCManager.GetInstance().GetHasLeft(ID);
-        patienceSprite.SetActive(hasOrdered);
+        patienceSprite.SetActive(hasOrdered && !isServed);
+
+        if (isServed || hasLeft) Leave();
     }
 }

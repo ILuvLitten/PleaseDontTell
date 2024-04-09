@@ -25,11 +25,12 @@ public class PlayerController : MonoBehaviour
     private float vertical;
     public float direction;
     private Vector3 startScale;
+    float damageTimer;
 
     private Rigidbody2D rb;
     [SerializeField] Animator anim;
 
-    private DialogueManager dialogueManager;
+    //private DialogueManager dialogueManager;
 
     public int[] inventory;
 
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         startScale = transform.localScale;
-        dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        //dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
 
         if (GameStateManager.GetInstance().GetDayBool(sceneNum))
         {
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (dialogueManager.dialogueIsPlaying) return;
+        if (DialogueManager.GetInstance().dialogueIsPlaying) return;
 
         if (canMove)
         {
@@ -68,12 +69,20 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isMoving", (horizontal == 0 ? false : true));
         }
 
+        damageTimer += 0.05f;
+
     }
 
     void Update()
     {
         
-        if (dialogueManager.dialogueIsPlaying) return;
+        if (DialogueManager.GetInstance().dialogueIsPlaying) 
+        {
+            anim.SetBool("isMoving", false); 
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isThrowing", false);
+            return;
+        }
         HandleTalk();
 
         if (canMove) HandleJump();
@@ -102,14 +111,14 @@ public class PlayerController : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine("Throw");
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        /*if (Input.GetKeyDown(KeyCode.C))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(direction,-1,0), new Vector2(direction, 0), 1, LayerMask.GetMask("Rats"));
             if (hit.collider != null && hit.collider.gameObject.GetComponent<RatController>() != null)
             {
                 hit.collider.gameObject.GetComponent<RatController>().InititateLaunchback(direction, attack);
             }
-        }
+        }*/
     }
 
     void HandleTalk()
@@ -117,7 +126,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(direction,-1,0), new Vector2(direction, 0), 0.5f, LayerMask.GetMask("NPC"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(direction,0,0), new Vector2(direction, 0), 0.5f, LayerMask.GetMask("NPC"));
             if (hit.collider != null && hit.collider.gameObject.GetComponent<NPCController>() != null && rb.velocity.y == 0)
             {
                 hit.collider.gameObject.GetComponent<NPCController>().InitiateDialogue(inventory);
@@ -154,10 +163,13 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(knockbackForce * direction, knockbackForce);
     }
 
-    private void Damaged(float damage)
+    public void Damaged(float damage)
     {
+        if (damageTimer < 1) return;
         health -= damage;
         HealthManager.GetInstance().UpdateHealth(health);
+        Launchback(-direction);
+        damageTimer = 0;
     }
 
     void StartDay()
