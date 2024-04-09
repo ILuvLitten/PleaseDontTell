@@ -26,9 +26,7 @@ public class CameraFollow : MonoBehaviour
         {
             x = target.transform.position.x;
 
-            if (target.transform.position.y > 10) y = 12;
-            else if (target.transform.position.y > 5) y = 7;
-            else if (target.transform.position.y < 5) y = -1;
+            y = target.transform.position.y + 1;
 
             transform.position = new Vector3(x, y, -10);
         }

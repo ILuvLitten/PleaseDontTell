@@ -5,7 +5,7 @@
 "Nothing against the new amendment, right?"
 * ["If you aren't a customer, scram."]
     "Customer, y'say?"
-    "... Get in the car."
+    "... Get in the car." #ENDING
 * ["I've got some hard cash."]
     "..."
     "Have a good day, sir."

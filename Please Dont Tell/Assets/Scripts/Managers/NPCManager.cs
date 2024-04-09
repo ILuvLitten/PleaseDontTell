@@ -43,18 +43,6 @@ public class NPCManager : MonoBehaviour
         //Debug.Log(staticHasOrdered[0] + " " + staticHasOrdered[1] + " " + staticHasOrdered[2] + " " + staticHasOrdered[3]);
     }
 
-    /*public IEnumerator StartTimer(NPCController npc)
-    {
-        yield return new WaitForSeconds(30);
-        
-        yield return new WaitForSeconds(30);
-        
-        yield return new WaitForSeconds(30);
-
-        yield return new WaitForSeconds(30);
-        npc.Leave();
-    }*/
-
     public void SetHasOrdered(int ID, bool value)
     {
         staticHasOrdered[ID] = value;

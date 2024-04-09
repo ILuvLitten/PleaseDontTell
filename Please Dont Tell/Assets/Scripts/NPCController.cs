@@ -23,9 +23,9 @@ public class NPCController : MonoBehaviour
 
     GameObject patienceSprite;
 
-    bool hasOrdered;
-    bool isServed;
-    bool hasLeft;
+    public bool hasOrdered;
+    public bool isServed;
+    public bool hasLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +51,11 @@ public class NPCController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (((isServed && !DialogueManager.GetInstance().dialogueIsPlaying) || hasLeft) && transform.position.y < 100)
+        {
+            Leave();
+            MusicManager.GetInstance().CuePolice();
+        }
     }
 
     public void InitiateDialogue(int[] inventory)
@@ -74,7 +78,6 @@ public class NPCController : MonoBehaviour
                 LiquorCount.GetInstance().UpdateCount(inventory);
                 isServed = true;
                 NPCManager.GetInstance().SetIsServed(ID, true);
-                PointsManager.GetInstance().AddPoints(DeterminePoints());
             }
         }
         else if (!isCustomer) DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
@@ -94,8 +97,7 @@ public class NPCController : MonoBehaviour
 
     public void Leave()
     {
-        hasLeft = true;
-        Debug.Log("patron " + ID + " has left");
+        transform.position = new Vector3(transform.position.x, 100, transform.position.z);
     }
 
     public void SetPatienceSprite(int patience)
@@ -121,14 +123,6 @@ public class NPCController : MonoBehaviour
 
     }
 
-    float DeterminePoints()
-    {
-        if (patienceSprite.GetComponent<SpriteRenderer>().sprite == patience1) return 250f;
-        else if (patienceSprite.GetComponent<SpriteRenderer>().sprite == patience2) return 100f;
-        else if (patienceSprite.GetComponent<SpriteRenderer>().sprite == patience3) return 50f;
-        else return 500f;
-    }
-
     void StartDay()
     {
         patienceSprite.SetActive(false);
@@ -143,5 +137,7 @@ public class NPCController : MonoBehaviour
         isServed = NPCManager.GetInstance().GetIsServed(ID);
         hasLeft = NPCManager.GetInstance().GetHasLeft(ID);
         patienceSprite.SetActive(hasOrdered && !isServed);
+
+        if (isServed || hasLeft) Leave();
     }
 }

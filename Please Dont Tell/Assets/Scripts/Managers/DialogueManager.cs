@@ -15,11 +15,13 @@ public class DialogueManager : MonoBehaviour
 
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
+    public bool makingChoice { get; private set; }
 
     [SerializeField] GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
 
     bool buffer;
+    public Door exit;
 
     void Awake()
     {
@@ -42,6 +44,7 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePanel.SetActive(false);
         dialogueIsPlaying = false;
+        makingChoice = false;
 
         // assigns each choicebox's text to a variable in an array to modify
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -52,6 +55,8 @@ public class DialogueManager : MonoBehaviour
             index++;
         }
 
+        if (GameObject.Find("Exit") != null) exit = GameObject.Find("Exit").GetComponent<Door>();
+
     }
 
     // Update is called once per frame
@@ -61,7 +66,7 @@ public class DialogueManager : MonoBehaviour
         if(!dialogueIsPlaying) return;
         //if(Input.GetKeyDown(KeyCode.Space)) return;
    
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.LeftShift) && !makingChoice)
         {
             ContinueStory();
         }
@@ -81,7 +86,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator ExitDialogueMode()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
 
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
@@ -111,6 +116,7 @@ public class DialogueManager : MonoBehaviour
             {
                 choices[i].gameObject.SetActive(true);
                 choicesText[i].text = currentChoices[i].text;
+                makingChoice = true;
             }
             else
             {
@@ -132,7 +138,18 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
+        makingChoice = false;
         currentStory.ChooseChoiceIndex(choiceIndex);
+        ContinueStory();
+    }
+
+    void HandleTags(List<string> currentTags)
+    {
+        foreach (string tag in currentTags)
+        {
+            if (tag == "ENDING" && exit != null) exit.SwitchDest("GameOverScene");
+        }
+
     }
 
     void ContinueStory()
@@ -141,6 +158,7 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text = currentStory.Continue();
             DisplayChoices();
+            HandleTags(currentStory.currentTags);
         }
         else 
         {

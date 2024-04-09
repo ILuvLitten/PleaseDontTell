@@ -14,6 +14,11 @@ public class Door : MonoBehaviour
 
     [SerializeField] Animator transition;
 
+    [SerializeField] bool isExit;
+    [SerializeField] NPCController npc1;
+    [SerializeField] NPCController npc2;
+    [SerializeField] NPCController npc3;
+
     bool playerIsNear;
 
     // Start is called before the first frame update
@@ -28,6 +33,13 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(isExit && !((npc1.isServed || npc1.hasLeft) && (npc2.isServed || npc2.hasLeft) && (npc3.isServed || npc3.hasLeft)))
+        {
+            topDoor.SetActive(true);
+            bottomDoor.SetActive(true);
+            return;
+        }
 
         topDoor.SetActive(!playerIsNear);
         bottomDoor.SetActive(!playerIsNear);
@@ -56,5 +68,10 @@ public class Door : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(nextScene);
         GameStateManager.GetInstance().SetDayBool(sceneNum, false);
+    }
+
+    public void SwitchDest(string scene)
+    {
+        nextScene = scene;
     }
 }

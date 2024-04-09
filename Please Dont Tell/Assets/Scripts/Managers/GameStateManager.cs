@@ -37,6 +37,7 @@ public class GameStateManager : MonoBehaviour
     void Start()
     {
 
+        transition = GameObject.Find("Transition").GetComponent<Animator>();
         if (transition != null) transition.Play("TransitionEndAnim");
         
     }

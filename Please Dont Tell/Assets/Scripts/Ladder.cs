@@ -8,9 +8,15 @@ public class Ladder : MonoBehaviour
     bool isTouching = true;
     Rigidbody2D rb;
 
+    GameObject platform;
+    [SerializeField] bool hasPlatform;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        platform = transform.GetChild(3).gameObject;
+        platform.SetActive(hasPlatform);
         
     }
 
@@ -22,6 +28,7 @@ public class Ladder : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, 5);
         }
+        if(hasPlatform) platform.SetActive(!Input.GetKey(KeyCode.DownArrow));
         
     }
 
