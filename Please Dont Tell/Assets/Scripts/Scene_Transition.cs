@@ -28,7 +28,7 @@ public class Scene_Transition : MonoBehaviour
     public void changePlay()
     {
 
-        SceneManager.LoadScene("BarScene");
+        SceneManager.LoadScene("BarSceneFinal");
     }
 
     public void changeHome()

@@ -438,8 +438,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Controls:\n\n    1. WASD arrow keys to move\n    2. Left Shift to initiate
-    dialogue\n    3. Press Z to enert doors \n    4. Press Z to continue dialogue\n   
+  m_text: "Controls:\n    1. WASD arrow keys to move\n    2. Left Shift to start/continue
+    dialogue\n    3. Press Z to enert doors \n    4. Press Up and Down to climb ladders\n   
     5. Press X to throw broken bottles\n    6. Press X to attack enemies"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -835,7 +835,7 @@ MonoBehaviour:
   m_text: "Game Play \n    1. Use the two rooms of the bar to get patrons' orders
     and collect liquor\n   2. Keep track of patrons' orders and find liquor of a
     simlar appearance\n   3. Be careful of enemies and taking too long to collect
-    liquor. "
+    liquor. \n   4. End each day through the left entrance"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
