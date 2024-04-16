@@ -31,4 +31,22 @@ public class Scene_Transition : MonoBehaviour
     {
         SceneManager.LoadScene("HomeScene");
     }
+
+    
+
+    public void gameOverToHome()
+    {
+        SceneManager.LoadScene("HomeScene");
+    }
+
+    public void finishtoHome()
+    {
+        SceneManager.LoadScene("HomeScene");
+    }
+
+
+    public void tutorialToHome()
+    {
+        SceneManager.LoadScene("HomeScene");
+    }
 }
