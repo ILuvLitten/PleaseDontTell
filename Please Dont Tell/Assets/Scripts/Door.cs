@@ -40,6 +40,12 @@ public class Door : MonoBehaviour
             bottomDoor.SetActive(true);
             return;
         }
+        else if(!isExit && ((npc1.isServed || npc1.hasLeft) && (npc2.isServed || npc2.hasLeft) && (npc3.isServed || npc3.hasLeft)))
+        {
+            topDoor.SetActive(true);
+            bottomDoor.SetActive(true);
+            return;
+        }
 
         topDoor.SetActive(!playerIsNear);
         bottomDoor.SetActive(!playerIsNear);

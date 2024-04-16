@@ -66,21 +66,21 @@ public class DialogueManager : MonoBehaviour
         if(!dialogueIsPlaying) return;
         //if(Input.GetKeyDown(KeyCode.Space)) return;
    
-        if(Input.GetKeyDown(KeyCode.LeftShift) && !makingChoice)
+        if(Input.GetKeyDown(KeyCode.Z) && !makingChoice)
         {
             ContinueStory();
         }
 
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(TextAsset inkJSON, bool cutscene)
     {
 
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
-        ContinueStory();
+        if (cutscene) ContinueStory();
 
     }
 

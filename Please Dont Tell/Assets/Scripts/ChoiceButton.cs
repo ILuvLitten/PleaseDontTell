@@ -17,7 +17,7 @@ public class ChoiceButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) &&  EventSystem.current.currentSelectedGameObject == gameObject)
+        if (Input.GetKeyDown(KeyCode.Z) &&  EventSystem.current.currentSelectedGameObject == gameObject)
         {
             DialogueManager.GetInstance().MakeChoice(idx);
         }

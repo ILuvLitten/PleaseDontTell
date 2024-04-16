@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleAttack()
     {
-        if (Input.GetKeyDown(KeyCode.X)) 
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)) 
         {
             StopAllCoroutines();
             StartCoroutine("Throw");
@@ -124,9 +124,9 @@ public class PlayerController : MonoBehaviour
     void HandleTalk()
     {
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(direction,0,0), new Vector2(direction, 0), 0.5f, LayerMask.GetMask("NPC"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(direction,0,0), new Vector2(direction, 0), 0.03f, LayerMask.GetMask("NPC"));
             if (hit.collider != null && hit.collider.gameObject.GetComponent<NPCController>() != null && rb.velocity.y == 0)
             {
                 hit.collider.gameObject.GetComponent<NPCController>().InitiateDialogue(inventory);

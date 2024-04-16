@@ -40,7 +40,7 @@ public class Cutscene : MonoBehaviour
             {
                 //Debug.Log("2");
                 police.SetActive(true);
-                if (door != null) Destroy(door);
+                //if (door != null) Destroy(door);
             }
         }
     }
@@ -49,7 +49,7 @@ public class Cutscene : MonoBehaviour
     {
         if ((!isPoliceEncounter && other.gameObject.GetComponent<PlayerController>() != null && occured == false) || (isPoliceEncounter && police.activeSelf && occured == false))
         {
-            DialogueManager.GetInstance().EnterDialogueMode(cutsceneJSON);
+            DialogueManager.GetInstance().EnterDialogueMode(cutsceneJSON, true);
             occured = true;
         }
     }

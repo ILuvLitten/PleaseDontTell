@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
@@ -82,7 +83,7 @@ public class MusicManager : MonoBehaviour
     {
         policeCue += 1;
         Debug.Log(policeCue);
-        if (policeCue == 3 && GameObject.Find("Police") != null)
+        if (policeCue == 3 && SceneManager.GetActiveScene().name == "Day2Bar")
         {
             source.clip = behindDoors;
             source.Play();

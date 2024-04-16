@@ -56,31 +56,31 @@ public class NPCController : MonoBehaviour
             Leave();
             MusicManager.GetInstance().CuePolice();
         }
+        //Debug.Log(hasLeft);
     }
 
     public void InitiateDialogue(int[] inventory)
     {
-        if (isCustomer)
+        
+        
+        if (!hasOrdered)
         {
-            if (!hasOrdered)
-            {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-                patienceSprite.SetActive(true);
-                hasOrdered = true;
-                NPCManager.GetInstance().SetHasOrdered(ID, true);
-                TimerManager.AddTimer(gameObject);
-            }
-            else if (inventory[drinkID] > 0 && !isServed) 
-            {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSONserved);
-                patienceSprite.SetActive(false);
-                inventory[drinkID] -= 1;
-                LiquorCount.GetInstance().UpdateCount(inventory);
-                isServed = true;
-                NPCManager.GetInstance().SetIsServed(ID, true);
-            }
+            Debug.Log("first");
+            DialogueManager.GetInstance().EnterDialogueMode(inkJSON, false);
+            patienceSprite.SetActive(true);
+            hasOrdered = true;
+            NPCManager.GetInstance().SetHasOrdered(ID, true);
+            TimerManager.AddTimer(gameObject);
         }
-        else if (!isCustomer) DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+        else if (inventory[drinkID] > 0 && !isServed) 
+        {
+            DialogueManager.GetInstance().EnterDialogueMode(inkJSONserved, false);
+            patienceSprite.SetActive(false);
+            inventory[drinkID] -= 1;
+            LiquorCount.GetInstance().UpdateCount(inventory);
+            isServed = true;
+            NPCManager.GetInstance().SetIsServed(ID, true);
+        }
         else return;
 
         if (GameObject.Find("Player") == null) return;
@@ -118,6 +118,8 @@ public class NPCController : MonoBehaviour
                 break;
             case 4:
                 patienceSprite.GetComponent<SpriteRenderer>().sprite = patience4;
+                hasLeft = true;
+                NPCManager.GetInstance().SetHasLeft(ID, true);
                 break;
         }
 
