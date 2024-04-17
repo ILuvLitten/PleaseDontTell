@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Throw()
     {
-        Instantiate(bottlePrefab, transform.position + new Vector3(0,1,0), Quaternion.identity);
+        Instantiate(bottlePrefab, transform.position + new Vector3(0,0.3f,0), Quaternion.identity);
         anim.SetBool("isThrowing", true);
         yield return new WaitForSeconds(0.4f);
         anim.SetBool("isThrowing", false);
