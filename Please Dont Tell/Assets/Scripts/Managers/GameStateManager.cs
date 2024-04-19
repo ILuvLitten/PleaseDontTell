@@ -11,9 +11,7 @@ public class GameStateManager : MonoBehaviour
     static bool startDayOne = true;
     static bool startDayTwo = true;
     static bool startDayThree = true;
-    static bool startDayOneCellar = true;
-    static bool startDayTwoCellar = true;
-    static bool startDayThreeCellar = true;
+    static bool startCellar = true;
 
     void Awake()
     {
@@ -56,19 +54,13 @@ public class GameStateManager : MonoBehaviour
                 return startDayOne;
                 break;
             case 2:
-                return startDayOneCellar;
-                break;
-            case 3:
                 return startDayTwo;
                 break;
-            case 4:
-                return startDayTwoCellar;
-                break;
-            case 5:
+            case 3:
                 return startDayThree;
                 break;
-            case 6:
-                return startDayThreeCellar;
+            case 4:
+                return startCellar;
                 break;
         }
         return false;
@@ -82,21 +74,23 @@ public class GameStateManager : MonoBehaviour
                 startDayOne = value;
                 break;
             case 2f:
-                startDayOneCellar = value;
-                break;
-            case 3f:
                 startDayTwo = value;
                 break;
-            case 4f:
-                startDayTwoCellar = value;
-                break;
-            case 5f:
+            case 3f:
                 startDayThree = value;
                 break;
-            case 6f:
-                startDayThreeCellar = value;
+            case 4f:
+                startCellar = value;
                 break;
         }
+    }
+
+    public void Restart()
+    {
+        startDayOne = true;
+        startDayTwo = true;
+        startDayThree = true;
+        startCellar = true;
     }
 
 }

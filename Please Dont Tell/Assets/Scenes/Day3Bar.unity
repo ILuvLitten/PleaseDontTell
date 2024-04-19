@@ -1157,7 +1157,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4820503580710742260, guid: 7cc52c43c67fd0540ab900653e8cc7a7, type: 3}
       propertyPath: sceneNum
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4820503580710742260, guid: 7cc52c43c67fd0540ab900653e8cc7a7, type: 3}
       propertyPath: direction
@@ -1884,6 +1884,10 @@ PrefabInstance:
     - target: {fileID: 1062748142588581252, guid: 2f867e4b3cba07244ad0dbb495df254d, type: 3}
       propertyPath: isExit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062748142588581252, guid: 2f867e4b3cba07244ad0dbb495df254d, type: 3}
+      propertyPath: sceneNum
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1062748142588581252, guid: 2f867e4b3cba07244ad0dbb495df254d, type: 3}
       propertyPath: transition
@@ -19104,7 +19108,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 590006338de042e4e90a1ded9c94c38f, type: 3}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: sceneNum
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: patience1
@@ -19213,7 +19217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: sceneNum
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: patience1
@@ -20087,6 +20091,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 957447367}
     - target: {fileID: 1062748142588581252, guid: 2f867e4b3cba07244ad0dbb495df254d, type: 3}
+      propertyPath: sceneNum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062748142588581252, guid: 2f867e4b3cba07244ad0dbb495df254d, type: 3}
       propertyPath: nextScene
       value: CellarSceneFinal
       objectReference: {fileID: 0}
@@ -20122,7 +20130,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 5f5505a6d35665f48bc2083339921aa7, type: 3}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: sceneNum
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: patience1

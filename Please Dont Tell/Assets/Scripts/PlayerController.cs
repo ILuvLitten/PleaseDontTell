@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private float vertical;
     public float direction;
     private Vector3 startScale;
-    float damageTimer;
+    float damageTimer = 20;
 
     private Rigidbody2D rb;
     [SerializeField] Animator anim;
@@ -70,6 +70,8 @@ public class PlayerController : MonoBehaviour
         }
 
         damageTimer += 0.05f;
+        if (damageTimer < 1) GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+        else GetComponent<SpriteRenderer>().enabled = true;
 
     }
 
@@ -90,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene("Game Over");
         }
     }
 
@@ -165,7 +167,7 @@ public class PlayerController : MonoBehaviour
 
     public void Damaged(float damage)
     {
-        if (damageTimer < 1) return;
+        if (damageTimer < 20) return;
         health -= damage;
         HealthManager.GetInstance().UpdateHealth(health);
         Launchback(-direction);

@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutsceneJSON: {fileID: 4900000, guid: 6d7157ba5cee62942bf747e3edf9e6a0, type: 3}
-  currentDay: 3
+  currentDay: 2
   isPoliceEncounter: 0
   npc1: {fileID: 0}
   npc2: {fileID: 0}
@@ -1236,7 +1236,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4820503580710742260, guid: 7cc52c43c67fd0540ab900653e8cc7a7, type: 3}
       propertyPath: sceneNum
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4820503580710742260, guid: 7cc52c43c67fd0540ab900653e8cc7a7, type: 3}
       propertyPath: direction
@@ -1967,6 +1967,10 @@ PrefabInstance:
     - target: {fileID: 1062748142588581252, guid: 2f867e4b3cba07244ad0dbb495df254d, type: 3}
       propertyPath: isExit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062748142588581252, guid: 2f867e4b3cba07244ad0dbb495df254d, type: 3}
+      propertyPath: sceneNum
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1062748142588581252, guid: 2f867e4b3cba07244ad0dbb495df254d, type: 3}
       propertyPath: transition
@@ -19318,7 +19322,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 02fc8c61cfc0e034e889353383844a7f, type: 3}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: sceneNum
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: patience1
@@ -19415,7 +19419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: sceneNum
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: patience1
@@ -19745,7 +19749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutsceneJSON: {fileID: 4900000, guid: e78754d9cc5c5f64a921c47313a0ac9b, type: 3}
-  currentDay: 3
+  currentDay: 2
   isPoliceEncounter: 1
   npc1: {fileID: 1802609698}
   npc2: {fileID: 213849045}
@@ -20370,6 +20374,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 957447367}
     - target: {fileID: 1062748142588581252, guid: 2f867e4b3cba07244ad0dbb495df254d, type: 3}
+      propertyPath: sceneNum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062748142588581252, guid: 2f867e4b3cba07244ad0dbb495df254d, type: 3}
       propertyPath: nextScene
       value: CellarSceneFinal
       objectReference: {fileID: 0}
@@ -20405,7 +20413,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: ce098a4df9427dd43bc114716c7e02c4, type: 3}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: sceneNum
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6169788971226362530, guid: ac9f5d63a42a79944b3978533f6dba5d, type: 3}
       propertyPath: patience1

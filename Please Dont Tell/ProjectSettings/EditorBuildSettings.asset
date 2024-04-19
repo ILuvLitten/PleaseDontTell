@@ -12,15 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialScene.unity
     guid: 6c413ebd0b5c9124db8ad07bedad87bd
   - enabled: 1
-    path: Assets/Scenes/BarSceneFinal.unity
-    guid: 373108a3d1b51e94d946ccc9aed38f97
+    path: Assets/Scenes/CreditScene.unity
+    guid: 00d121c7f1241c04d8171bf92b9d6879
   - enabled: 1
-    path: Assets/Scenes/CellarSceneFinal.unity
-    guid: 2b0011fa93790c5458b3f890ba752c0a
+    path: Assets/Scenes/Day1Bar.unity
+    guid: 3a72296a8289da74b8ad86118a2f46b8
+  - enabled: 1
+    path: Assets/Scenes/Day2Bar.unity
+    guid: 044622bdd351f42408dd213d3ccbfd96
+  - enabled: 1
+    path: Assets/Scenes/Day3Bar.unity
+    guid: cc2169aa386164746a8c9e132ffcb0ae
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
-    guid: f9df65be5b918004ca94ee922eda7296
+    guid: cd6e62e928208b7458bc67f51e40dfa0
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
-    guid: 997050b0009d9c54fbe95375a851f777
+    path: Assets/Scenes/FinishScene.unity
+    guid: 0763f977438430f48adc7aa495fe65fb
   m_configObjects: {}

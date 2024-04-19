@@ -82,7 +82,6 @@ public class RatController : MonoBehaviour
 
     public IEnumerator Launchback(float direction)
     {
-        Debug.Log("launchback");
         rb.velocity = new Vector2(knockbackForce * direction, knockbackForce);
         yield return new WaitForSecondsRealtime(0.5f);
         hostile = true;
